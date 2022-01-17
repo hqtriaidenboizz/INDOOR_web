@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="shortcut icon" href="img/logo.jpg"type="image/x-icon">
+    <link rel="stylesheet" href="admin.css">
+    <script src="admin.js"></script>
+    <title>ADMIN</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left menu -->
+            <div id="left_menu" class=" col-md-3 col-lg-2 px-0 position-fixed h-100  shadow-sm sidebar" id="sidebar">
+                <a class="nav__logo "><i class="ri-coreos-fill nav__logo-icon"></i>Indoor</a>
+                <h1 class="bi bi-bootstrap text-primary d-flex my-4 justify-content-center"></h1>
+                <div class="list-group rounded-0">
+                    <a  href="#" class=" item_left list-group-item list-group-item-action border-0 align-items-center">
+                        <span class="bi bi-box"></span>
+                        <span class="ml-2">Products</span>
+                    </a>
+                    <hr>
+                </div>
+                <button class=" item_left list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#sale-collapse">
+                    <div>
+                        <span class="bi bi-cart-plus"></span>
+                        <span class="ml-2">Seals</span>
+                    </div>
+                    
+                </button>
+                <hr>
+                <button class=" item_left list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#purchase-collapse">
+                    <div>
+                        <span class="bi bi-cart-plus"></span>
+                        <span class="ml-2">Purchase</span>
+                    </div>
+                </button>
+                <hr>
+            </div>
+            <!-- note: in the layout margin auto is the key as sidebar is fixed -->
+            <div class="col-md-9 col-lg-10 ml-md-auto px-0">
+                <!-- main content -->
+                <main class="container-fluid">
+                    <div class="row">
+                        <div class="d-flex flex-row bd-highlight mb-3" id="linh">
+                            <div class="header_left">
+                                <li class="nav-item">
+                                    <form class="form-inline my-2 my-lg-0 mr-lg-2">
+                                        <div class="input-group">
+                                            <input class="form-control" type="text" placeholder="Search for...">
+                                            <span class="input-group-append">
+                                              <button class="btn btn-primary" type="button">
+                                                  <i class="ri-search-line"></i>
+                                              </button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </li>
+                            </div>
+                            <div class="header_right">
+                                <li>
+                                    <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="ri-mail-line"></i>
+                                        <span class="d-lg-none">Messages</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="ri-notification-3-line"></i>
+                                        <span class="d-lg-none">Alerts</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                                        <i class="ri-logout-box-line"></i>Logout</a>
+                                </li>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <section class="row">
+
+                        <div class="col-md-6 col-lg-4">
+                            <!-- card -->
+                            <article class="p-4 rounded shadow-sm " id="pro1">
+                                <a  class="d-flex align-items-center">
+                                    <span class="bi bi-box h5"><i class="ri-profile-line icon" id="icon1"></i></span>
+                                    
+                                    <h5 class="ml-2" id="c" onclick="showproducts();changeColor1()">Products</h5>
+                                </a>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="p-4 rounded shadow-sm  " id="pro2">
+                                <a  class="d-flex align-items-center">
+                                    <span class="bi bi-person h5"><i class="ri-map-pin-user-line icon" id="icon2"></i></span>
+                                    
+                                    <h5 class="ml-2" id ="a" onclick="showcustomer();changeColor2()">Customer</h5>
+                                </a>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article class="p-4 rounded shadow-sm " id="pro3">
+                                <a  class="d-flex align-items-center">
+                                    <span class="bi bi-person-check h5"><i class="ri-shopping-cart-2-line icon" id="icon3"></i></span>
+                                    <h5 id ="b" class="ml-2" onclick="showorders();changeColor3()">Orders</h5>
+                                </a>
+                            </article>
+                        </div>
+                    </section>
+
+                    <div class="jumbotron jumbotron-fluid rounded bg-white border-0  ">
+
+                        <div class="container_product" id="container_product">
+                            <div class="header_admin">
+                                <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="create"><i class="ri-add-box-fill"></i> Create</span>
+                            </div>
+                            <div id="myNav" class="overlay">
+                                <a  class="closebtn" onclick="closeNav()">&times;</a>
+                                <div class="form1">
+                                    <label for="">Name Product</label>
+                                    <input type="text" id="product-name" placeholder="Enter name"><br>
+                                    <label for="">Price</label>
+                                    <input type="text" id="price" placeholder="Enter price"><br>
+                                    <label for="">Image</label>
+                                    <input type="text" id="image" placeholder="Enter link image"><br>
+                                    <label for="">Color</label><br>
+                                    <div class="color">
+                                        <input type="radio" name="color" id="color1" value="female">Blue
+                                        <input type="radio" name="color" id="color2" value="other"> White
+                                        <input type="radio" name="color" id="color3" value="other"> Grey
+                                    </div><br>
+                                    <label for="">Type</label><br>
+                                    <div class="for">
+                                        <input type="radio" name="for" id="for" value="female">Decor
+                                        <input type="radio" name="for" id="for" value="other"> Kitchen
+                                        <input type="radio" name="for" id="for" value="other"> Bedroom
+                                    </div>
+                                    <label for="">Info</label><br>
+                                    <textarea name="" id="infor"></textarea><br><br>
+                                    <div class="add_update">
+                                        <button id='add' onclick="add()">Add</button>
+                                    <button id='update' onclick="update(document.getElementById('update').value)">Edit</button>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="tables">
+                                <table class="table">
+                                    <h2 class="mo">Product</h2>
+                                    <thead class="thead">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name Product</th>
+                                            <th>Price</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id='tbl'>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- customer -->
+                        <div class="container_customer" id="container_customer">
+                            <div class="tables">
+                                <table class="table">
+                                    <h2 class="mo">Customer</h2>
+                                    <thead class="thead">
+                                        <tr>
+                                            <th>IDCus</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Order Quantity</th>
+                                            <th>View</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_customer">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--  #######   Orders  ########## -->
+                        <div class="container_order" id="container_order">
+                            <div class="tables">
+                                <table class="table">
+                                    <h2 class="mo">ORDERS</h2>
+                                    <thead class="thead">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Oder ID</th>
+                                            <th>Order Day</th>
+                                            <th>Price</th>
+                                            <th>View</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table_orders">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="showBill" id="showBill">
+
+                        </div>
+                        <section class="view_information" id="view_information">
+                            <div class="hearder_infor">
+                                <h1>ORDER DETAILS</h1>
+                                <hr>
+                            </div>
+                            <div class="content_infor" id="content_infor">
+                                
+                            </div>
+                            <div class="footer_infor">
+                                <button onclick="closeBill()"><i class="ri-close-circle-line"></i></button>
+                            </div>
+                        </section>
+                    </div>
+
+                </main>
+            </div>
+        </div>
+    </div>
+
+
+<!-- ######## Sweet Alert ################## -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
+</html>
