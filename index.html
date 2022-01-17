@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- #### favicon ###### -->
+    <link rel="shortcut icon" href="img/logo.jpg"type="image/x-icon">
+    <!-- #### css #### -->
+    <link rel="stylesheet" href="home.css">
+    <!-- #### remix ### -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- ######## Email ############## -->
+    
+    <title>INDOOR</title>
+    
+</head>
+
+<body>
+    <!-- ##### header ######## -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a onclick="openHomePage();removeItemViewCart();closeViewCart()"  class="nav__logo "><i class="ri-coreos-fill nav__logo-icon"></i>Indoor</a>
+            <div class="nav__menu" id="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a onclick="openHomePage()" class="nav_link">Home</a>
+                    </li>
+                    <li class="nav__item">  
+                        <a onclick="openDecorPage()" class="nav__link">Decor</a>
+                    </li>
+                    <li class="nav__item">
+                        <a onclick="openKitchenPage()" class="nav__link">Kitchen</a>
+                    </li>
+                    <li class="nav__item">
+                        <a onclick="openAboutPage()" class="nav__link">About</a>
+                    </li>
+                    <li class="nav__item">
+                        <a onclick="openContactPage()" class="nav__link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <button onclick="openNav__login()" class="nav__login" id="nav__login"><i class="ri-account-circle-fill nav__login-icon"></i>Login</button>
+            <div class="account" id="account">
+                <button  class="nav__account" id="nav__account" ></button>
+                <div class="dropdown-content">
+                    <a onclick="open_setting_account()"><span>Setting</span><span><i class="ri-settings-4-fill"></i></span></a>
+                    <a onclick="openHistory()"><span>History</span><span><i class="ri-timer-2-fill"></i></span></a>
+                    <a onclick="sign_out_account()"><span>Sign out</span><span><i class="ri-logout-circle-r-fill"></i></span></a>
+                </div>
+            </div>
+            <a href="#" onclick="openCart()" class="nav__cart"><i class="ri-shopping-cart-2-fill nav__cart-icon"></i><p id="countpro1">0</p></a>
+            <a href="#" onclick="openNav()" class="nav__opent"><i class="ri-list-check nav__opent-icon"></i></a>
+        </nav>
+    </header>
+    <main class="main">
+
+        <!-- ####################   HOME   ###################### -->
+        <section class="home" id="home">
+            <div class="home__container">
+                <div class="slideshow-container">
+
+                    <div class="mySlides fade">
+                      <img src="img/slidett3.jpeg" >
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <img src="img/tt.jpeg" >
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <img src="img/slidett4.jpeg" >
+                    </div>
+                    
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <div class="slide__text">
+                    <h1>MODERN DESIGN MEETS COZY COMFORT</h1>
+                    <p>Create the perfect space </p>
+                </div>
+            </div>
+            <div class="home__products" id="home__products">
+                <div class="home__products_decor" id="home__products_decor">
+                    <div class="img name__type-product">
+                        <h1>DECOR</h1>
+                    </div>
+                </div>
+                <div class="home__products_kitchen" id="home__products_kitchen">
+                    <div class="img name__type-product">
+                        <h1>KITCHEN</h1>
+                    </div>
+                </div>
+                <div class="home__products_bedroom" id="home__products_bedroom">
+                    <div class="img name__type-product">
+                        <h1>BEDROOM</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ####################   Decor  ###################### -->
+        <section class="decor" id="decor">
+            <div class="decor__container" id="decor__container">
+                <h1>Decor</h1>
+                <div class="decor__product" id="decor__product">
+                    <div class="filters filters__decor" id="filters__decor">
+                        <h2>Filter by</h2>
+                        <hr width="30%">
+                        <div>
+                            <form>
+                                <p>Price</p>
+                                <input type="radio" id="age1" name="age" value="30" onclick="show_filter_price1()" >
+                                <label for="age1">0.00$ - 30.00$</label><br>
+                                <input type="radio" id="age2" name="age" value="100" onclick="show_filter_price2()">
+                                <label for="age2">30.00$ - 100.00$</label><br>  
+                                <input type="radio" id="age3" name="age" value="150" onclick="show_filter_price3()">
+                                <label for="age3">100.00$ - 150.00$</label><br>
+                                <input type="radio" id="age3" name="age" value="200" onclick="show_filter_price4()">
+                                <label for="age3">150.00$ - 200.00$</label><br><br>
+                            
+                            </form>
+                        </div>
+                        <hr width="30%">
+                        <div>
+                            <form >
+                                <label for="color" >Color:</label>
+                                <select id="color__list" onchange="show_filter_color1(this)">
+                                    <option value="white"  >White</option>
+                                    <option value="blue"  >Blue</option>
+                                    <option value="grey" >Grey</option>
+                                    <option value="brown" >Brown</option>
+                            </select>   
+                            </form>
+                                                    
+                        </div>
+                        <br>
+                        <br>
+                        <div onclick ="clear__filter()">Clear Filter</div>           
+                    </div>
+                    <div class="products__list products__list-decor" id="products__list-decor">
+
+                    </div>
+
+                   
+                </div>
+            </div>
+        </section>
+        <!-- ##################### Kitchen ############ -->
+        <section class="kitchen" id="kitchen"> 
+            <div class="kitchen__container" id="kitchen__container">
+                <h1>Kitchen</h1>
+                <div class="kitchen__product" id="kitchen__product">
+                    <div class="filters filters__kitchen" id="filters__kitchen">
+                        <h2>Filter by</h2>
+                        <hr width="30%">
+                        <div>
+                            <form>
+                                <p>Price</p>
+                                <input type="radio" id="age1" name="age" value="30"  onclick="show_filter_price5()">
+                                <label for="age1">0.00$ - 30.00$</label><br>
+                                <input type="radio" id="age2" name="age" value="100" onclick="show_filter_price6()">
+                                <label for="age2">30.00$ - 100.00$</label><br>  
+                                <input type="radio" id="age3" name="age" value="150" onclick="show_filter_price7()">
+                                <label for="age3">100.00$ - 150.00$</label><br>
+                                <input type="radio" id="age3" name="age" value="200" onclick="show_filter_price8()">
+                                <label for="age3">150.00$ - 200.00$</label><br><br>
+                            </form>
+                            
+                        </div>
+                        <hr width="30%">
+                        <div>
+                            <form >
+                                <label for="color">Color:</label>
+                                <select id="color__list" onchange="show_filter_color2(this)">
+                                    <option value="white">White</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="grey">Grey</option>
+                                    <option value="brown">Brown</option>
+                            </select>   
+                            </form>
+                                                    
+                        </div>
+                        <br>
+                        <br>
+                        <div onclick="clear__filter2()">Clear Filter</div>           
+                    </div>
+                    <div class="products__list products__list-kitchen" id="products__list-kitchen">
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ##################### About #################### -->
+        <section class="about" id="about">
+            <div class="contenter__about">
+                <div class="About">
+                    <div class="text_about" id="text_about">
+                        <h2>About</h2>
+                        <div>
+                        <br>
+                         <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to tell a story and let your users know a little more about you.</p>
+                         <br>
+                         <p>This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who you are.</p>
+                        
+                     </div>
+                    </div>
+    
+                    <div class="iamge_about" id="iamge_about">
+                            <img src="img/slide.1.jpg" alt="">
+                    </div>
+                </div>
+    
+                <div class="FAQ">
+                    <div class="text_left" id="text_left">
+                        <h2>FAQ</h2>
+                        <br>
+                        <div>
+                        <h4>Do you provide International delivery?</h4><br>
+                        <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.</p><r><br>
+                        <h4>How do I return an item?</h4><br>
+                        <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.</p><br><br>
+                        <h4>What is your returns policy?</h4><br>
+                        <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.</p>
+                        </div>
+                    </div>
+                    <div class="text_right" id="text_right">
+                         <br>
+                        <h4>How do I track my order?</h4><br>
+                         <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p><br><br>
+                         <h4>How can I contact your couriers?</h4><br>
+                         <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.</p><br><br>
+                         <h4>What are your delivery options?</h4>
+                         <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p>                     
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+        </section>
+
+        <!-- ################## Contact ##################### -->
+        <section class="contact" id="contact">
+            <div class="contact__container">
+                <div class="text_left" id="text_left">
+                <h2>Contact</h2>
+                <div>
+                <br><br>
+                <p>1-800-000-0000<br>
+                info@mysite.com</p><br>
+                <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to tell a story and let your users know a little more about you.</p>
+                </div>
+                </div>
+                <div class="form_right" id="form_right">
+                <br>
+                <form>
+                <div>
+                <input type="text" id="Name" placeholder="Name" >    
+                </div><br>
+                <div>
+                <input type="text" id="Email" placeholder="Email">    
+                </div><br>
+                <div>
+                <input type="text" id="Subject" placeholder="Subject">    
+                </div><br>
+                <div>  
+                <textarea rows="5"  id="message" placeholder="message" ></textarea>
+                </div><br>
+                 <button type="button" id ="submit_contact">Submit</button> 
+                </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ################# view products ############ -->
+        <section class="view_products" id="view_products">
+            
+            
+        </section>
+
+        <!-- ############### view Cart ################# -->
+        <section class="view_cart" id="view_cart">
+            <div class="content_viewCart" id="content_viewCart">
+                <div class="content_left">
+                    <h2>My cart</h2>
+                    <hr>
+                    <div class="product_list_in_view_cart" id="product_list_in_view_cart">
+                        
+
+                    </div>
+                    <div class="other_infor">
+                        <div class="promo_code">
+                            <div>
+                                <button class="btn_promo_code" onclick="openPromo()">
+                                    <i class="ri-edit-box-line"></i>
+                                    Enter a promo code
+                                </button>
+                            </div>
+                            <div id="text_promo_code">
+                                <input type="text" id="promo_code">
+                                <input type="button" onclick="offer();checkpromo()" value="Apply">
+                            </div>
+                        </div>
+                        <div class="note_cart">
+                            <div>
+                                <button class="btn_note_cart" onclick="openNote()">
+                                    <i class="ri-message-2-line"></i>
+                                    Add a note
+                                </button>
+                            </div>
+                            <div id="text_note">
+                                <textarea name="note" id="note" ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_right">
+                    <h2>Order summary</h2>
+                    <hr>
+                    <div class="infor_subtotal">
+                        <div class="subtotal_right">
+                            <p>Subtotal</p>
+                            <p id="Subtotal">...</p>
+                        </div>
+                        <div class="subtotal_right">
+                            <p>Shipping</p>
+                            <p>Free</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="subtotal_right">
+                        <p>Total</p>
+                        <p id="Total"></p>
+                    </div>
+                    <div>
+                        <h2>Checkout</h2>
+                        <form >
+                            <label for="Pay_methods">Pay methods:</label>
+                            <select id="payMethod__list" onchange="">
+                                <option value="delivery">Payment on delivery</option>
+                                <option value="online">Online payment </option>
+                        </select>   
+                        </form>
+                    </div>
+                    <div class="divbtn_buynow"><button class="btn_buynow" onclick="Check_login()">Buy Now</button></div>
+                </div>
+
+            </div>
+        </section>
+        <!-- ############ bill ################### -->
+        <section class="bill" id="bill">
+            <div class="content_bill" id="content_bill">
+                <div class="img_top" id="img_top">
+                    <img src="img/pexels-emre-can-acer-2079694.jpg" alt="">
+                </div>
+                <div class="content_bottom" id="content_bottom">
+                    <a class="nav__logo "><i class="ri-coreos-fill nav__logo-icon"></i>Indoor</a>
+                    <h2>INVOICE</h2>
+                    <div class="form_info" id="form_info">
+                        <p>Contact Info</p>
+                        <div class="name_cus">
+                            <p>Name <p class ="bug" id="bug6">*</p></p>
+                            <input type="text" id="name_cus" onclick="close_bug_nameCus()"></input>
+                        </div>
+                        <div class="phone_number">
+                            <p>Phone Number <p class="bug" id="bug7">*</p> </p>
+                            <input type="text" id="phone_number_cus" onclick="close_bug_phone_number_cus()"></input>
+                        </div>
+                        <div class="address">
+                            <p>Address <p class="bug" id="bug8">*</p></p>
+                            <input type="text" id="address_cus" onclick="close_bug_address_cus()"></input>
+                        </div>
+                    </div>
+                    <div class="content_order" id="content_order">
+                        <div class="content_pro" id="content_pro">
+
+                        </div>
+                        <hr>
+                        <div class="total">
+                            <p id="totalALl"></p>
+                        </div>                       
+                    </div>
+                    <div class="order" id="order">
+                        <button type="button" id="order" onclick="uploadBillToAPI()">Order</button>
+                        <button type="button" id="cancel" onclick="openHomePage();removeProBill();">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- ##### footer ##### -->
+    <footer class="footer">
+        <div class="content__footer" >
+            <div class="footer__info">
+                <div class="footer__infor-text">
+                    <p>Contact Us</p>
+                    <p>1-800-200-0000</p>
+                    <p>hoquoctri10b7@gmail.com</p>
+                </div>
+                <div class="footer__media">
+                    <i class="ri-facebook-fill footer__media-icon"></i>
+                    <i class="ri-instagram-fill footer__media-icon"></i>
+                    <i class="ri-pinterest-fill footer__media-icon"></i>
+                </div>
+            </div>
+            <div class="footer__bank">
+                <div class="footer__bank-text">
+                    <p>We Accept</p>
+                </div>
+                <div class="footer__bank-icon">
+                <img src="https://static.wixstatic.com/media/cda177_66112d8828944365b8a0fb3f95e423a0.png/v1/fill/w_32,h_20,al_c,q_85,usm_0.66_1.00_0.01/cda177_66112d8828944365b8a0fb3f95e423a0.webp" >
+                <img src="https://static.wixstatic.com/media/cda177_0292d75330eb4c46819ebd76e2b71edd.png/v1/fill/w_34,h_22,al_c,q_85,usm_0.66_1.00_0.01/cda177_0292d75330eb4c46819ebd76e2b71edd.webp" alt="">
+                <img src="https://static.wixstatic.com/media/cda177_ae6aa613f4e049c697544cc8c8375ea2.png/v1/fill/w_33,h_21,al_c,q_85,usm_0.66_1.00_0.01/cda177_ae6aa613f4e049c697544cc8c8375ea2.webp" alt="">
+                <img src="https://static.wixstatic.com/media/cda177_91a1dcd4c6d44674acf4a562b09838f6.png/v1/fill/w_35,h_22,al_c,q_85,usm_0.66_1.00_0.01/cda177_91a1dcd4c6d44674acf4a562b09838f6.webp" alt="">
+                </div>
+            </div>
+            <div class="footer__Email">
+                <div class="footer__Email-text">
+                    Get promo code now
+                </div>
+                <div class="footer__Email-font">
+                    <input type="text" placeholder="Enter your email here" id="emailuser">
+                </div>
+                <div class="footer__Email-sub">
+                    <input type="button" value="Subscribe Now" onclick="send()">
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- Cửa sổ -->
+            <!-- ######### mobile ########## -->
+            <div id="myNav" class="overlay">
+                <div class="nav__menu-mobile" id="nav__menu">
+                    <button onclick="closeNav()" class="close1"><i class="ri-close-circle-line"></i></button>
+                    <ul class="nav__list-mobile">
+                        <li class="nav__item-mobile">
+                            <a onclick="openHomePage();closeNav()" class="nav_link">Home</a>
+                        </li>
+                        <li class="nav__item-mobile">
+                            <a onclick="openDecorPage();closeNav()" class="nav__link">Decor</a>
+                        </li>
+                        <li class="nav__item-mobile">
+                            <a onclick="openKitchenPage();closeNav()" class="nav__link">Kitchen</a>
+                        </li>
+                        <li class="nav__item-mobile">
+                            <a onclick="openAboutPage();closeNav()" class="nav__link">About</a>
+                        </li>
+                        <li class="nav__item-mobile">
+                            <a onclick="openContactPage();closeNav()" class="nav__link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#" onclick="openCart()" class="nav__cart-mobile"><i class="ri-shopping-cart-2-fill nav__cart-icon"></i><p id="countpro2">0</p></a>
+                <br>
+                <button onclick="openNav__login()" class="nav__login" id="nav__login_mobile"><div ><i class="ri-user-fill nav__login-icon"></i>Login</div></button>
+                <div class="account__mobile" id="account__mobile">
+                    <button  class="nav__account" id="nav__account_moblile"></button>
+                    <div class="dropdown-content dropdown-content_mobile">
+                    <a onclick="open_setting_account()"><span>Setting</span><span><i class="ri-settings-4-fill"></i></span></a>
+                    <a onclick="openHistory()"><span>History</span><span><i class="ri-timer-2-fill"></i></span></a>
+                    <a onclick="sign_out_account()"><span>Sign out</span><span><i class="ri-logout-circle-r-fill"></i></span></a>
+                    </div>
+                </div>
+            </div>
+            <!-- ######## Login ########## -->
+            <div id="myNav__login" class="overlay__login">
+                <button onclick="closeNav__login();openHomePage()" class="close1"><i class="ri-close-circle-line"></i></button>
+                <div class="login__page">
+                    <div class="item__img">
+                        <div class="logins user ">
+                            <div class="login_page">
+                                <div class="login__img">
+                                    <img src="img/login_user.jpeg" >
+                                 </div>   
+                                <div class="item__login" id="item__login">
+                                    <form class="form__login">
+                                        <h1>SIGN IN </h1>
+                                        <label class="login_email" >Email</label>
+                                        <input type="text" id="login_email" placeholder="test@gmail.com">
+                                        <label class="login_password" >Password</label>
+                                        <input type="password" id="login_password" placeholder=".......">
+                                        <p>No account <a onclick="next__page(1)">Create one?</a></p>
+                                        <p>Sign in with <a onclick="next__page(-1)">Admin?</a></p>
+                                        <button type="button" onclick="sign_in_account()" class="btn_signin">Sign In</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="logins admin">
+                            <div class="login_page">
+                                <div class="login__img">
+                                    <img src="img/login_user.jpeg" >
+                                </div>
+                                <div class="item__signup" id="item__signup">
+                                    <form class="form__signup">
+                                        <h1>SIGN UP</h1>
+                                        <label class="signUp__email" id="signUp__email1">Email <p class="bug" id="bug1">*</p></label>
+                                        <input type="text" id="signUp__email" placeholder="test@gmail.com" onclick="close_bug_email();close_bug2_email()">
+                                        <label class="signUp_password" id="signUp_password1" >Password <p class="bug" id="bug2">*</p></label>
+                                        <input type="password" id="signUp_password" placeholder="......." onclick="close_bug_password()">
+                                        <label class="signUp_phone"id="signUp_phone1" >Phone Number <p class="bug" id="bug3">*</p></label>
+                                        <input type="text" id="signUp_phone" placeholder="Enter here" onclick="close_bug_phone_number()">
+                                        <label class="signUp_Address" id="signUp_Address1" >Address <p class="bug" id="bug4">*</p></label>
+                                        <input type="text" id="signUp_Address" placeholder="Enter here" onclick="close_bug_address()">
+                                        <button  type="button"class="btn_signup" onclick="addAccount()"> SIGN UP</button>
+                                        <button  type="button" onclick="next__page(-1)" class="btn_signup">SIGN IN</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- admin -->
+                        <div class="logins admin">
+                            <div class="login_page">
+                                <div class="login__img">
+                                    <img src="img/login_admin.jpg" >
+                                </div>
+                                <div class="item__login">
+                                    <form class="form__login">
+                                        <h1>ADMIN</h1>
+                                        <label class="login_email" >Email</label>
+                                        <input type="text" id="login_email_admin" placeholder="test@gmail.com">
+                                        <label class="login_password" >Password</label>
+                                        <input type="password" id="login_password_admin" placeholder=".......">
+                                        <p>Sign in with <a onclick="next__page(1)">User?</a></p>
+                                        <button type="button" onclick="sign_in_account_admin()" class="btn_signin">SIGN IN</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ######## cart ########### -->
+            <div id="myCart" class="overlay__cart">
+                <button onclick="closeCart()" class="close1"><i class="ri-close-circle-line"></i></button>
+                <div class="header_cart">
+                    <span><h2>My Cart</h2></span> 
+                </div>
+                <div class="content__cart">
+                    <table class="cart-table">
+                        <tbody id="tbody_cart">
+                            
+        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="footer_sub">
+                    <div class="cart-sub">
+                        <div class="cart-sub-title">Subtotal</div>
+                        <div class="cart-sub-total" id="cart-sub-total"></div>
+                    </div>
+                    <button id="viewCart" onclick="remove__view_product();removeItemViewCart();viewCart();openViewCart()">View Cart</button>
+                </div>
+            </div>
+            <!-- ######### Setting Account ###### -->
+            <div id="setting_account" class="setting_account">
+                <button onclick="close_setting_account()" class="close1"><i class="ri-close-circle-line"></i></button>
+                <div class="your__account" id="your__account">
+                    <h1>Your Account</h1>
+                    <h4>Email Address</h4>
+                    <p id="setting_email"></p>
+                    <hr>
+                    <h4>Password</h4>
+                    <p id="setting_password"></p>
+                    <hr>
+                    <h4>Phone Number</h4>
+                    <p id="setting_phone"></p>
+                    <hr>
+                    <h4>Address</h4>
+                    <p id="setting_address"></p>
+                    <hr>
+                    <button  class="btn__edit" onclick="open_form_edit();show_user_info_old();">Edit</button>
+                </div>
+                <div class="edit__account" id="edit__account">
+                    <h1>Edit Account</h1>
+                    <h4>Email Address</h4>
+                    <input type="text" id="edit_email">
+                    <h4>Password</h4>
+                    <input type="text" id="edit_password">
+                    <h4>Phone Number</h4>
+                    <input type="text" id="edit_phone">
+                    <h4>Address</h4>
+                    <input type="text" id="edit_address">
+                    <button class="btn__done" onclick="done_edit_info()">Done</button>
+                    <button class="btn__back" onclick="close_form_edit()">Back</button>
+                </div>
+            </div>
+
+            <!-- ####### history page ############# -->
+            <div id="history" class="overlay__history">
+                <button onclick="closeHistory()" class="close1"><i class="ri-close-circle-line"></i></button>
+                <header class="header_history" id="header_history">
+                    <h1 class="h1_history">Order History</h1>
+                </header>
+                <main class="main_history" id="main_history">
+                    <div class="content_products" id="content_products">
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>ORDER ID</th>
+                                    <th>ORDER DAY</th>
+                                    <th>PRICE</th>
+                                    <th>STATUS</th>
+                                    <th>VIEW DETAILS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody_history">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </main>
+                <footer class="viewDetailOrder" id="viewDetailOrder">
+                    
+                </footer>
+            </div>
+            
+    <!-- ### Axios###### -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- ### JavaScript #### -->
+<script src = "https://smtpjs.com/v3/smtp.js"> </script>  
+<!-- ######## Sweet Alert ################## -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="home.js"></script>
+    <script src="products.js"></script>
+    <script src="decor.js"></script>
+    <script src="kitchen.js"></script>
+    <script src="cart.js"></script>
+    <script src="bills.js"></script>
+    
+</body>
+</html>
